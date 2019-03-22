@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './header';
-import Techspecs from './Techspecs';
 
 class App extends Component {
   constructor(props){
@@ -37,7 +35,6 @@ class App extends Component {
   }
 
   render() {
-    {/* GREENLEAF COMPONENT */}
     const summary = Object.keys(this.state.selected)
           .map(key => <div className="summary__option" key={key}>
             <div className="summary__option__label">{key}  </div>
@@ -47,14 +44,11 @@ class App extends Component {
                   .format(this.state.selected[key].cost) }
             </div>
         </div>)
-    {/* GREENLEAF COMPONENT */}
 
-    {/* TOTAL COMPONENT */}
     const total = Object.keys(this.state.selected)
-          .reduce((acc, curr) => acc + this.state.selected[curr].cost, 0);   
-    {/* TOTAL COMPONENT */} 
+          .reduce((acc, curr) => acc + this.state.selected[curr].cost, 0);    
 
-    {/* FEATURES COMPONENT */}
+
     const features = Object.keys(this.props.features)
           .map(key => {
             const options = this.props.features[key].map((item, index) => {
@@ -77,21 +71,20 @@ class App extends Component {
                 { options }
               </ul>
             </div>
-          }); 
-    {/* FEATURES COMPONENT */}     
+          });      
 
     return (
       <div className="App">
-        <Header />
+        <header>
+          <h1>ELF Computing</h1>
+          <h3>Laptops</h3>
+          <h5>Customize your laptop</h5>  
+        </header>      
         <main>
-          <Techspecs  
-            techFeatures = { features } />
-
-            {/* ONE FEATURE COMPONENT AND THEN A COMPONENT TO MAKE THE ENTIRE LSIT */}
-           
- 
-
-          {/* GREENLEAF COMPONENT */}
+          <section className="main__form">
+            <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
+            { features }
+          </section>
           <section className="main__summary">
             <h3>NEW GREENLEAF 2018</h3>
             {summary}
@@ -103,8 +96,6 @@ class App extends Component {
               </div>
             </div>
           </section>
-          {/* GREENLEAF COMPONENT */}
-
         </main>
       </div>
     );
