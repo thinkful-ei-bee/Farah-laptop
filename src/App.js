@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Techspecs from './Techspecs';
 
 class App extends Component {
   constructor(props){
@@ -10,11 +11,11 @@ class App extends Component {
             name: '17th Generation Intel Core HB (7 Core with donut spare)',
             cost: 700
           },
-        "Operating System": {
+        OperatingSystem: {
             name: 'Ubuntu Linux 16.04',
             cost: 200
           },
-        "Video Card":{
+        VideoCard:{
             name: 'Toyota Corolla 1.5v',
             cost: 1150.98
           },
@@ -81,10 +82,11 @@ class App extends Component {
           <h5>Customize your laptop</h5>  
         </header>      
         <main>
-          <section className="main__form">
-            <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-            { features }
-          </section>
+          <Techspecs 
+            features = { features }
+            selected={this.state.selected}
+            
+          />
           <section className="main__summary">
             <h3>NEW GREENLEAF 2018</h3>
             {summary}
