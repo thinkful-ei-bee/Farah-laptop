@@ -86,9 +86,11 @@ class App extends Component {
             />
   
           
-          {/* <section className="main__summary">
-            <GreenleafSummary />
-          </section> */}
+          <section className="main__summary">
+            <GreenleafSummary 
+              selected={this.state.selected}
+            />
+          </section>
         </main>
       </div>
     );
