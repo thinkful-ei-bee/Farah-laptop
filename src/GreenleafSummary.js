@@ -17,7 +17,7 @@ export default class GreenleafSummary extends Component {
         <>
         <h3>NEW GREENLEAF 2018</h3>
             {summary}  
-            {total}
+            Your price: {total}
         </>
     )
     }
