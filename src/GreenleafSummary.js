@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
+import ItemPrice from './ItemPrice';
 
 export default class GreenleafSummary extends Component {
     render() {
         const summary = Object.keys(this.props.selected)
-          .map(key => <div className="summary__option" key={key}>
-            <div className="summary__option__label">{key}  </div>
-            <div className="summary__option__value">{this.props.selected[key].name}</div>
-            <div className="summary__option__cost">
-              { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                  .format(this.props.selected[key].cost) }
-            </div>
-        </div>)
-
+          .map(key => {
+            return (
+             <ItemPrice key={key} itemKey={key} selected={this.props.selected} ></ItemPrice>
+              )
+          })
 
     const total = Object.keys(this.props.selected)
     .reduce((acc, curr) => acc + this.props.selected[curr].cost, 0);  
@@ -24,8 +21,4 @@ export default class GreenleafSummary extends Component {
         </>
     )
     }
-}
-
-GreenleafSummary.defaultProps = {
-    selected: {}
 }

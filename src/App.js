@@ -48,8 +48,8 @@ class App extends Component {
     //         </div>
     //     </div>)
 
-    const total = Object.keys(this.state.selected)
-          .reduce((acc, curr) => acc + this.state.selected[curr].cost, 0);    
+    // const total = Object.keys(this.state.selected)
+    //       .reduce((acc, curr) => acc + this.state.selected[curr].cost, 0);    
 
 
     // const features = Object.keys(this.props.features)
@@ -83,8 +83,8 @@ class App extends Component {
             <Techspecs 
               features = { this.props.features }
               selected={ this.state.selected }
+              handleUpdate={(feature, newValue)=> this.updateFeature(feature, newValue)}
             />
-  
           
           <section className="main__summary">
             <GreenleafSummary 

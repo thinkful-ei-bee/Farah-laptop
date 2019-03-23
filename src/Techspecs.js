@@ -9,10 +9,9 @@ export default class Techspecs extends React.Component{
     .map(key => {
 
       return (
-        <Feature key={key} features={this.props.features} featureKey={key} selected={this.props.selected}  >
+        <Feature key={key} featureKey={key} features={this.props.features} selected={this.props.selected} handleUpdate={this.props.handleUpdate}>
         </Feature>
       )
-
     });      
 
       return (
